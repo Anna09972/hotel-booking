@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Available Rooms | HotelBook{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/rooms.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="rooms-container">
+    <h1>Available Rooms</h1>
+    <p class="subtitle">Choose the room that fits your comfort</p>
+
+    <div class="room-grid">
+        {% for room in rooms %}
+        <div class="room-card">
+            <div class="room-header">
+                <h3>Room {{ room.room_number }}</h3>
+                <span class="type">{{ room.room_type }}</span>
+            </div>
+
+            <div class="room-body">
+                <p class="price">₹ {{ room.price_per_night }} / night</p>
+
+                {% if room.is_available %}
+                    <span class="status available">Available</span>
+                {% else %}
+                    <span class="status booked">Booked</span>
+                {% endif %}
+            </div>
+
+            <div class="room-footer">
+                {% if room.is_available %}
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'booking_details' room.id %}" class="btn book">Book Now</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn login">Login to Book</a>
+                    {% endif %}
+                {% else %}
+                    <button class="btn disabled" disabled>Not Available</button>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+            <p>No rooms available.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

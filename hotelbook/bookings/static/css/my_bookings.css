@@ -1,0 +1,95 @@
+/* Page Container */
+.my-bookings-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+/* Title */
+.my-bookings-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Table */
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Table Head */
+.bookings-table th {
+    background: #27ae60;
+    color: white;
+    font-weight: 600;
+    padding: 14px;
+    text-align: left;
+}
+
+/* Table Body */
+.bookings-table td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* Hover Effect */
+.bookings-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Price */
+.price {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Empty Message */
+.no-bookings {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 16px;
+    color: #777;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .bookings-table,
+    .bookings-table thead,
+    .bookings-table tbody,
+    .bookings-table th,
+    .bookings-table td,
+    .bookings-table tr {
+        display: block;
+    }
+
+    .bookings-table thead {
+        display: none;
+    }
+
+    .bookings-table tr {
+        margin-bottom: 20px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .bookings-table td {
+        border: none;
+        padding: 8px 0;
+    }
+
+    .bookings-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-bottom: 4px;
+    }
+}

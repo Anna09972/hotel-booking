@@ -1,0 +1,94 @@
+/* ===== HERO SECTION ===== */
+.hero {
+    height: 80vh;
+    background: url("/static/img/hotel.jpg") center center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark overlay for readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* Content wrapper */
+.hero-overlay {
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    padding: 60px 40px;
+    max-width: 700px;
+}
+
+/* Heading */
+.hero-overlay h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* Sub text */
+.hero-overlay p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Buttons container */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Primary button */
+.btn.primary {
+    background: #27ae60;
+    color: #ffffff;
+}
+
+.btn.primary:hover {
+    background: #219150;
+}
+
+/* Outline button */
+.btn.outline {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.btn.outline:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-overlay h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-overlay {
+        padding: 40px 20px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+}

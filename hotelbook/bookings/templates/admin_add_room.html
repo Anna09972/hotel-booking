@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Hotel & Room | Admin{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/admin.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-container">
+
+    <!-- ADD HOTEL -->
+    <div class="card">
+        <h2>Add New Hotel</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label>Hotel Name</label>
+            <input type="text" name="hotel_name" required>
+
+            <label>Location</label>
+            <input type="text" name="hotel_location" required>
+
+            <label>Description</label>
+            <textarea name="hotel_description" rows="3"></textarea>
+
+            <label>Contact Number</label>
+            <input type="text" name="hotel_contact" required>
+
+            <label>Email</label>
+            <input type="email" name="hotel_email" required>
+
+            <button type="submit" name="add_hotel" class="btn primary">
+                + Add Hotel
+            </button>
+        </form>
+    </div>
+
+    <!-- ADD ROOM -->
+    <div class="card">
+        <h2>Add New Room</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label>Select Hotel</label>
+            <select name="hotel" required>
+                <option value="">-- Select Hotel --</option>
+                {% for hotel in hotels %}
+                    <option value="{{ hotel.id }}">
+                        {{ hotel.name }} ({{ hotel.location }})
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label>Room Number</label>
+            <input type="text" name="room_number" required>
+
+            <label>Room Type</label>
+            <select name="room_type" required>
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Suite">Suite</option>
+            </select>
+
+            <label>Price per Night</label>
+            <input type="number" name="price" required>
+
+            <button type="submit" name="add_room" class="btn primary">
+                + Add Room
+            </button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

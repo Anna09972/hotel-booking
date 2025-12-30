@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Hotel Booking{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<!-- 🔷 HEADER -->
+<header class="header">
+    <div class="logo">
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <!-- Admin logo → Admin Dashboard -->
+                <a href="{% url 'admin_dashboard' %}">HotelBook Admin</a>
+            {% else %}
+                <!-- User logo → Rooms -->
+                <a href="{% url 'rooms' %}">HotelBook</a>
+            {% endif %}
+        {% else %}
+            <!-- Guest logo → Home -->
+            <a href="{% url 'index' %}">HotelBook</a>
+        {% endif %}
+    </div>
+
+    <nav class="nav">
+        {% if user.is_authenticated %}
+
+            {% if not user.is_superuser %}
+                <!-- Normal user -->
+                <a href="{% url 'rooms' %}">Rooms</a>
+                <a href="{% url 'my_bookings' %}">My Bookings</a>
+            {% else %}
+                <!-- Admin -->
+                <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+            {% endif %}
+
+            <span class="user">Hi, {{ user.username }}</span>
+            <a href="{% url 'logout' %}">Logout</a>
+
+        {% else %}
+            <!-- Guest -->
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+
+<!-- 🔶 MAIN CONTENT -->
+<main class="content">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- 🔻 FOOTER -->
+<footer class="footer">
+    <p>© 2025 HotelBook. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

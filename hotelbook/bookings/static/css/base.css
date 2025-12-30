@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.user {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.content {
+    min-height: 80vh;
+    padding: 30px;
+}
+
+.footer {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 15px;
+}

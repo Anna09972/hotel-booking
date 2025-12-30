@@ -1,0 +1,131 @@
+/* Container */
+.booking-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+.booking-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Card */
+.booking-container .card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Hotel Title */
+.booking-container .card h2 {
+    margin-bottom: 5px;
+    color: #27ae60;
+}
+
+.booking-container .location {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Text */
+.booking-container p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Section Headings */
+.booking-container h3 {
+    margin-top: 20px;
+    margin-bottom: 12px;
+    color: #2c3e50;
+}
+
+/* Room Info List */
+.booking-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.booking-container ul li {
+    padding: 8px 0;
+    font-size: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.booking-container ul li:last-child {
+    border-bottom: none;
+}
+
+/* Divider */
+.booking-container hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 25px 0;
+}
+
+/* Contact */
+.booking-container .card p {
+    margin: 6px 0;
+}
+
+/* Actions */
+.actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Confirm Button */
+.btn.confirm {
+    background: #27ae60;
+    color: white;
+}
+
+.btn.confirm:hover {
+    background: #219150;
+}
+
+/* Back Button */
+.btn.back {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.btn.back:hover {
+    background: #dcdde1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .booking-container .card {
+        padding: 20px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

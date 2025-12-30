@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | HotelBook{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/style.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-overlay">
+        <h1>Book Your Perfect Stay</h1>
+        <p>Comfort • Luxury • Best Prices</p>
+
+        {% if not user.is_authenticated %}
+            <div class="hero-actions">
+                <a href="{% url 'login' %}" class="btn primary">Login</a>
+                <a href="{% url 'register' %}" class="btn outline">Register</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+
+
+{% endblock %}

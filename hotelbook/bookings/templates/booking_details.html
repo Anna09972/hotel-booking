@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Booking Details | HotelBook{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/booking.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="booking-container">
+    <h1>Booking Details</h1>
+
+    <div class="card">
+        <h2>{{ hotel.name }}</h2>
+        <p class="location">{{ hotel.location }}</p>
+        <p>{{ hotel.description }}</p>
+
+        <hr>
+
+        <h3>Room Information</h3>
+        <ul>
+            <li><strong>Room Number:</strong> {{ room.room_number }}</li>
+            <li><strong>Room Type:</strong> {{ room.room_type }}</li>
+            <li><strong>Price per Night:</strong> ₹{{ room.price_per_night }}</li>
+        </ul>
+
+        <hr>
+
+        <h3>Contact</h3>
+        <p>📞 {{ hotel.contact_number }}</p>
+        <p>✉️ {{ hotel.email }}</p>
+
+        <div class="actions">
+            <form method="post" action="{% url 'confirm_booking' room.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn confirm">Confirm Booking</button>
+                <a href="{% url 'rooms' %}" class="btn back">Back</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
